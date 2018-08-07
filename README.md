@@ -1,11 +1,11 @@
 # FlowType
 
-## Add a way to define type specifications with another syntax.
+#### Add a way to define type specifications with another syntax.
 
 Reasons for this is the more coupled way it ties to the function.
 Somewhat inspired by flow.js but more to do with my laziness to
 write @spec before the function without the need to type the function
-specification twice.
+name twice.
 
 It looks something like this:
 
