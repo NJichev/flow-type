@@ -1,7 +1,13 @@
 # FlowType
 
-FlowType inspired by flow.js and laziness from writing `@spec`s in
-your code aims to simplify type annotation for your functions:
+## Add a way to define type specifications with another syntax.
+
+Reasons for this is the more coupled way it ties to the function.
+Somewhat inspired by flow.js but more to do with my laziness to
+write @spec before the function without the need to type the function
+specification twice.
+
+It looks something like this:
 
 ```
 defmodule Module do
@@ -24,21 +30,16 @@ defmodule Module do
 end
 ```
 
+## TODO
+
+Stuff that are not supported/tested yet:
+  - Multiple clause definitions
+  - Pattern matching
+  - Default arguments
+  - Function heads
+
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `flow_type` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:flow_type, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/flow_type](https://hexdocs.pm/flow_type).
-
+You can check this out by adding it to your dependencies pointing to
+the github repo.
