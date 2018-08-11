@@ -28,6 +28,7 @@ defmodule FlowType do
   defmacro def({:::, _meta, [{name, line, args}, return_type]}, expr) do
     {body_args, types} = split_types(args)
     body = {name, line, body_args}
+
     quote do
       @spec(unquote(name)(unquote_splicing(types)) :: unquote(return_type))
       Kernel.def(unquote(body), unquote(expr))

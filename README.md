@@ -33,10 +33,10 @@ end
 ## TODO
 
 Stuff that are not supported/tested yet:
-  - Multiple clause definitions
   - Pattern matching
   - Default arguments
   - Function heads
+  - Function guards
 
 
 ## Installation

@@ -77,4 +77,21 @@ defmodule FlowTypeTest do
     assert {:type, _, :product, [{:type, _, :integer, []}, {:type, _, :integer, []}]} = arg1
     assert {:type, _, :tuple, [{:type, _, :integer, []}, {:type, _, :integer, []}]} = arg2
   end
+
+  test "multiple clause definitions" do
+    {:module, _, bytecode, _} =
+      defmodule TestClauses do
+        use FlowType
+
+        def my_fun(x: integer) :: integer when is_integer(x), do: x
+        def my_fun(x: atom) :: atom, do: :foo
+      end
+
+    assert TestClauses.my_fun(3) == 3
+    assert TestClauses.my_fun(:asdf) == :foo
+
+    assert [{{:my_fun, 1}, [integer, atom]}] = specs(bytecode)
+    assert {:type, _, :fun, [{:type, _, :product, [{:type, _, :integer, []}]}, {:type, _, :integer, []}]} = integer
+    assert {:type, _, :fun, [{:type, _, :product, [{:type, _, :atom, []}]}, {:type, _, :atom, []}]} = atom
+  end
 end
